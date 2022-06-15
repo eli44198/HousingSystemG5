@@ -16,10 +16,11 @@ def ViewAll(HouseName=None, HouseType=None):
         4:{"Type":"Bungalow", "Name":"Paddocks"},
         5:{"Type":"Villa", "Name":"Mensah Lodge"}}
     
-    for house_id, house_info in houses.items():print("\nHouse ID: ", house_id)
-    for t in house_info:
-        print(t,": ", house_info[t])
-        home1()
+    for house_id, house_info in houses.items():
+        print("\nHouse ID: ", house_id)
+        for t in house_info:
+            print(t,": ", house_info[t])
+            home1()
 # functions
 def addHouse(HouseName=None, HouseType=None): 
     HouseName = input("Enter a House name:") 
