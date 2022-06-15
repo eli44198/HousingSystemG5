@@ -1,6 +1,3 @@
-
-
-
 print("Welcome to UG house managing system "+"\n","please select an option") 
 
 def ViewAll(HouseName=None, HouseType=None): 
