@@ -1,3 +1,6 @@
+
+
+
 print("Welcome to UG house managing system "+"\n","please select an option") 
 
 def ViewAll(HouseName=None, HouseType=None): 
@@ -9,7 +12,7 @@ def ViewAll(HouseName=None, HouseType=None):
     
     # function0
 def ViewAll(HouseName=None, HouseType=None): 
-    
+
     houses ={1:{"Type":"Condo", "Name":"The Loft"},
         2:{"Type":"Villa", "Name":"Villa Peaceful"},
         3:{"Type":"Apartment", "Name":"Adoley Resident"},
@@ -19,6 +22,7 @@ def ViewAll(HouseName=None, HouseType=None):
     for house_id, house_info in houses.items():print("\nHouse ID: ", house_id)
     for t in house_info:
         print(t,": ", house_info[t])
+        home1()
 # functions
 def addHouse(HouseName=None, HouseType=None): 
     HouseName = input("Enter a House name:") 
