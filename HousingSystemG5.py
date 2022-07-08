@@ -1,12 +1,6 @@
 print("Welcome to UG house managing system "+"\n","please select an option") 
 
-def ViewAll(HouseName=None, HouseType=None): 
-    houses ={1:{"Type":"Condo", "Name":"The Loft"},
-        2:{"Type":"Villa", "Name":"Villa Peaceful"},
-        3:{"Type":"Apartment", "Name":"Adoley Resident"},
-        4:{"Type":"Bungalow", "Name":"Paddocks"},
-        5:{"Type":"Villa", "Name":"Mensah Lodge"}}
-    
+
     # function0
 def ViewAll(HouseName=None, HouseType=None): 
 
