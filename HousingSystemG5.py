@@ -1,105 +1,64 @@
-print("Welcome to UG house managing system "+"\n","please select an option") 
+import database
+from database import *
 
-def ViewAll(HouseName=None, HouseType=None): 
-    houses ={1:{"Type":"Condo", "Name":"The Loft"},
-        2:{"Type":"Villa", "Name":"Villa Peaceful"},
-        3:{"Type":"Apartment", "Name":"Adoley Resident"},
-        4:{"Type":"Bungalow", "Name":"Paddocks"},
-        5:{"Type":"Villa", "Name":"Mensah Lodge"}}
-    
-    # function0
-def ViewAll(HouseName=None, HouseType=None): 
+print("Welcome to UG house managing system " + "\n", "please select an option")
 
-    houses ={1:{"Type":"Condo", "Name":"The Loft"},
-        2:{"Type":"Villa", "Name":"Villa Peaceful"},
-        3:{"Type":"Apartment", "Name":"Adoley Resident"},
-        4:{"Type":"Bungalow", "Name":"Paddocks"},
-        5:{"Type":"Villa", "Name":"Mensah Lodge"}}
-    
-    for house_id, house_info in houses.items():
-        print("\nHouse ID: ", house_id)
-        for t in house_info:
-            print(t,": ", house_info[t])
-            home1()
-# functions
-def addHouse(HouseName=None, HouseType=None): 
-    HouseName = input("Enter a House name:") 
-    HouseType = input("Set house type:") 
-    db = open("database.txt", "r") 
-    d = []
-    f = [] 
-    for i in d: 
-        a,b, = i.split(",") 
-        f = a,b
-        d.append(a)
-        f.append(b)
-        data = dict(zip(d, f))
-        print(data)
-    if not len(HouseType)<=1: 
-        db = open("database.txt", "r") 
-        if not HouseName ==None: 
-            if len(HouseName) <1: 
-                print("Please provide a HouseName") 
-                () 
-            elif HouseName in d: 
-                print("HouseName exists") 
-                addHouse()   
-            else: 
-                if HouseType == HouseType: 
-                    HouseType = HouseType.encode('utf-8') 
-                    HouseType = (HouseType,()) 
-                                        
-                    db = open("database.txt", "a") 
-                    db.write(HouseName+", "+str(HouseType)+"\n") 
-                    print("House added successfully!")
 
-#  functions1
-def home1(option=None): print("Welcome, please select an option") 
-option = input("View all | add house | modify a house:") 
-if option == "View all":
-    ViewAll()
-elif option == "add house":
-    addHouse()
-else: 
-    print("Please enter a valid parameter, this is case-sensitive") 
-# function2
-def home(option=None): print("Welcome, please select an option") 
-option = input("View all | add house | modify a house:") 
-if option == "View all":
-    ViewAll()
-elif option == "add house":
-    addHouse()
-else: 
-    home1()
+def home():
+    option = int(input(
+        "\n"
+        "Press 1: View all house \n"
+        "press 2: Add your house \n"
+        "Press 3: Modify house details \n"
+        "\n********************************************************************\n"
+    ))
 
-# function3
-def addHouse(HouseName=None, HouseType=None): 
-    HouseName = input("Enter a House name:") 
-    HouseType = input("Set house type:") 
-    db = open("database.txt", "r") 
-    d = []
-    f = [] 
-    for i in d: 
-        a,b, = i.split(",") 
-        f = a,b
-        d.append(a)
-        f.append(b)
-        data = dict(zip(d, f))
-        print(data)
-    if not len(HouseType)<=1: 
-        db = open("database.txt", "r") 
-        if not HouseName ==None: 
-            if len(HouseName) <1: 
-                print("Please provide a HouseName") 
-                () 
-            elif HouseName in d: 
-                print("HouseName exists") 
-                addHouse()   
-            else: 
-                if HouseType == HouseType: 
-                    HouseType = HouseType.encode('utf-8') 
-                    HouseType = (HouseType,()) 
-                                        
-                    db = open("database.txt", "a") 
-                    db.write(HouseName+", "+str(HouseType)+"\n") 
-                    print("House added successfully!")
+    #For Option 1: view all houses
+    if option == 1:
+        def ViewAll():
+            print(*view_all)
+        ViewAll()
+        home()
+
+    #For option 2: add a house function
+    elif option == 2:
+
+        def addHouse():
+            print("Use underscore _ inplace of space")
+            HouseName = input(str("Enter a the name of the house: \n"))
+            HouseId = input("Enter the house Id: \n")
+            HouseType = input("Enter the type of house: \n")
+
+            db = open("database.py", "a")
+
+            if HouseName not in database.view_all:
+                add = "\n%s = {'House_Id': \'%s\',  'Type': \'%s\', 'Name': \'%s\'} \n\n" \
+             % (HouseName, HouseId, HouseType, HouseName)
+                db.write(add)
+                db.write("view_all.append('%s')" % HouseName)
+                db.close()
+            else:
+                print("Please try again")
+                home()
+        addHouse()
+
+    #For option 3: Modify house details
+    elif option == 3:
+        def modify():
+            print(*view_all)
+            try:
+                House = input("\nWhich house do you wish to modify? \n")
+                attributes = input("\nWhat do you wish to modify? \n")
+                features = ["House_Id", "Name", "Type"]
+                print(*features)
+                
+            except:
+                print("Failed. Please try again")
+        modify()
+    else:
+        print("Please try again")
+home()
+
+
+
+
